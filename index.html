@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Download Center</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: #f9f8f3; /* Soft Cream Background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+
+    .card {
+      background: #ffffff; /* White Card Body */
+      border-radius: 36px;
+      padding: 40px 32px 36px;
+      max-width: 390px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .header-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0d1b2a;
+      letter-spacing: -0.3px;
+      margin-bottom: 28px;
+    }
+
+    /* Icon Container with Layered Glow */
+    .icon-wrapper {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .icon-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 120px;
+      background: rgba(30, 107, 255, 0.25);
+      filter: blur(20px);
+      border-radius: 36px;
+      z-index: 1;
+    }
+
+    .icon-outer {
+      position: relative;
+      z-index: 2;
+      width: 112px;
+      height: 112px;
+      background: linear-gradient(135deg, #2b75ff 0%, #0052cc 100%);
+      border-radius: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 28px rgba(0, 82, 204, 0.28);
+    }
+
+    .icon-inner {
+      width: 78px;
+      height: 78px;
+      background: linear-gradient(135deg, #0a2540 0%, #051329 100%);
+      border-radius: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
+    }
+
+    .icon-text {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Titles & Badges */
+    .title {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0b192c;
+      letter-spacing: 0.2px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .subtitle-badge {
+      display: inline-block;
+      background: rgba(30, 107, 255, 0.08);
+      color: #1e6bff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+      max-width: 260px;
+    }
+
+    /* Interactive Download Button */
+    .download-btn {
+      background: linear-gradient(135deg, #1e6bff 0%, #004bd6 100%);
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: 30px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 24px rgba(30, 107, 255, 0.35);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(30, 107, 255, 0.45);
+      background: linear-gradient(135deg, #2b75ff 0%, #0052cc 100%);
+    }
+
+    .download-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(30, 107, 255, 0.3);
+    }
+
+    .download-icon {
+      width: 22px;
+      height: 22px;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Security Tag */
+    .security-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      color: #1e6bff;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(30, 107, 255, 0.04);
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    .shield-icon {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: #1e6bff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- Header -->
+    <h2 class="header-title">App Download Center</h2>
+
+    <!-- App Icon with Glow -->
+    <div class="icon-wrapper">
+      <div class="icon-glow"></div>
+      <div class="icon-outer">
+        <div class="icon-inner">
+          <div class="icon-text">S24x7</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Title Info -->
+    <h1 class="title">SARA 24x7 MTK</h1>
+    <div class="subtitle-badge">Official App</div>
+
+    <p class="description">Download the latest official version of our app.</p>
+
+    <!-- Download Button -->
+    <button class="download-btn">
+      <svg class="download-icon" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      Download App
+    </button>
+
+    <!-- Security Indicator -->
+    <div class="security-tag">
+      <svg class="shield-icon" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
+      </svg>
+      <span>Secure & Fast Download</span>
+    </div>
+  </div>
+
+</body>
+</html>
