@@ -13,7 +13,7 @@
     }
 
     body {
-      background: #f9f8f3; /* Soft Cream Background */
+      background: #f9f8f3;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,7 +22,7 @@
     }
 
     .card {
-      background: #ffffff; /* White Card Body */
+      background: #ffffff;
       border-radius: 36px;
       padding: 40px 32px 36px;
       max-width: 390px;
@@ -44,7 +44,6 @@
       margin-bottom: 28px;
     }
 
-    /* Icon Container with Layered Glow */
     .icon-wrapper {
       position: relative;
       margin-bottom: 24px;
@@ -96,7 +95,6 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
 
-    /* Titles & Badges */
     .title {
       font-size: 26px;
       font-weight: 900;
@@ -127,7 +125,6 @@
       max-width: 260px;
     }
 
-    /* Interactive Download Button */
     .download-btn {
       background: linear-gradient(135deg, #1e6bff 0%, #004bd6 100%);
       color: #ffffff;
@@ -168,7 +165,6 @@
       stroke-linejoin: round;
     }
 
-    /* Security Tag */
     .security-tag {
       display: flex;
       align-items: center;
@@ -196,10 +192,8 @@
 <body>
 
   <div class="card">
-    <!-- Header -->
     <h2 class="header-title">App Download Center</h2>
 
-    <!-- App Icon with Glow -->
     <div class="icon-wrapper">
       <div class="icon-glow"></div>
       <div class="icon-outer">
@@ -209,23 +203,21 @@
       </div>
     </div>
 
-    <!-- App Title Info -->
     <h1 class="title">SARA 24x7 MTK</h1>
     <div class="subtitle-badge">Official App</div>
 
     <p class="description">Download the latest official version of our app.</p>
 
-    <!-- Download Button -->
-    <button class="download-btn">
+    <!-- Generic download link placeholder -->
+    <a href="https://seduhub.github.io/leaning/sara247.apk" class="download-btn">
       <svg class="download-icon" viewBox="0 0 24 24">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
       </svg>
       Download App
-    </button>
+    </a>
 
-    <!-- Security Indicator -->
     <div class="security-tag">
       <svg class="shield-icon" viewBox="0 0 24 24">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
